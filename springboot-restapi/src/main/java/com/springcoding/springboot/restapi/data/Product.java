@@ -1,4 +1,4 @@
-package com.bytecode.springboot.restapi.data;
+package com.springcoding.springboot.restapi.data;
 
 
 

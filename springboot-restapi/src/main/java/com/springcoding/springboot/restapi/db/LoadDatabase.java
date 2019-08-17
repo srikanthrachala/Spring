@@ -1,4 +1,4 @@
-package com.bytecode.springboot.restapi.db;
+package com.springcoding.springboot.restapi.db;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -6,8 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.bytecode.springboot.restapi.dao.ProductRepository;
-import com.bytecode.springboot.restapi.data.Product;
+import com.springcoding.springboot.restapi.dao.ProductRepository;
+import com.springcoding.springboot.restapi.data.Product;
 
 @Configuration
 @Slf4j

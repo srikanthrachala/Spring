@@ -1,4 +1,4 @@
-package com.bytecode.springboot.restapi.exception;
+package com.springcoding.springboot.restapi.exception;
 
 public class ProductNotFoundException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

@@ -1,4 +1,4 @@
-package com.bytecode.springboot;
+package com.springcoding.springboot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

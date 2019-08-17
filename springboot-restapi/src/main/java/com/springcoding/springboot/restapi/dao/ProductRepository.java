@@ -1,8 +1,8 @@
-package com.bytecode.springboot.restapi.dao;
+package com.springcoding.springboot.restapi.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.bytecode.springboot.restapi.data.Product;
+import com.springcoding.springboot.restapi.data.Product;
 
 public interface ProductRepository extends JpaRepository<Product,Long> {
 

@@ -1,4 +1,4 @@
-package com.bytecode.springboot.restapi.controller;
+package com.springcoding.springboot.restapi.controller;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bytecode.springboot.restapi.dao.ProductRepository;
-import com.bytecode.springboot.restapi.data.Product;
-import com.bytecode.springboot.restapi.exception.ProductNotFoundException;
+import com.springcoding.springboot.restapi.dao.ProductRepository;
+import com.springcoding.springboot.restapi.data.Product;
+import com.springcoding.springboot.restapi.exception.ProductNotFoundException;
 
 @RestController
 public class ProductController {
