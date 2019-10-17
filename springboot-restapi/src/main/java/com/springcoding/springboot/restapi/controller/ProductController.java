@@ -2,6 +2,7 @@ package com.springcoding.springboot.restapi.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,49 +11,46 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springcoding.springboot.restapi.dao.ProductRepository;
 import com.springcoding.springboot.restapi.data.Product;
-import com.springcoding.springboot.restapi.exception.ProductNotFoundException;
+import com.springcoding.springboot.restapi.service.ProductService;
 
+/**
+ * Controller Class for Product API end point/operations
+ * 
+ * @author Srikanth
+ */
 @RestController
 public class ProductController {
 
-	private final ProductRepository repository;
+	@Autowired
+	private ProductService productService;
 
-	public ProductController(ProductRepository repository) {
-
-		this.repository = repository;
-	}
 
 	@GetMapping("/products")
 	List<Product> getProducts() {
-		return repository.findAll();
+		return productService.getProducts();
 	}
 
 	@PostMapping("/products")
 	Product createProduct(@RequestBody Product product) {
-		return repository.save(product);
+		return productService.createProduct(product);
 	}
 
 	@GetMapping("/products/{id}")
 	Product getProductById(@PathVariable Long id) {
 
-		return repository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
+		return productService.getProductById(id);
 	}
 
-	@PutMapping("/product/{id}")
-	Product replaceEmployee(@RequestBody Product updateProduct, @PathVariable Long id) {
+	@PutMapping("/products/{id}")
+	Product  updateProduct(@RequestBody Product updateProduct, @PathVariable Long id) {
 
-		return repository.findById(id).map(product -> {
-			product.setName(updateProduct.getName());
-			product.setPrice(updateProduct.getPrice());
-			return repository.save(product);
-		}).orElseThrow(() -> new ProductNotFoundException(id));
+		return productService.updateProduct(updateProduct, id);
 	}
 
-	@DeleteMapping("/product/{id}")
+	@DeleteMapping("/products/{id}")
 	void deleteProduct(@PathVariable Long id) {
-		repository.deleteById(id);
+		productService.deleteProduct(id);
 	}
 
 }
